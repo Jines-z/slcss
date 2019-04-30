@@ -1,0 +1,180 @@
+@for $i from 0 through 100 {
+  // 偶数和5的倍数
+  @if $i % 2 == 0 or ($i % 5 == 0 and $i % 10 != 0) {
+    // margin
+    .mt-#{$i} {
+      margin-top: #{$i}px;
+    }
+    .mr-#{$i} {
+      margin-right: #{$i}px;
+    }
+    .mb-#{$i} {
+      margin-bottom: #{$i}px;
+    }
+    .ml-#{$i} {
+      margin-left: #{$i}px;
+    }
+
+    // padding
+    .pt-#{$i} {
+      padding-top: #{$i}px;
+    }
+    .pr-#{$i} {
+      padding-right: #{$i}px;
+    }
+    .pb-#{$i} {
+      padding-bottom: #{$i}px;
+    }
+    .pl-#{$i} {
+      padding-left: #{$i}px;
+    }
+
+    // line-height
+    @if $i <= 50 {
+      .lh#{$i} {
+        line-height: #{$i}px;
+      }
+    }
+
+    // width height
+    .w#{$i} {
+      width: #{$i}px;
+    }
+    .h#{$i} {
+      height: #{$i}px;
+    }
+  }
+
+  // 10的倍数
+  @if $i % 10 == 0 and $i != 0 {
+    .w#{$i}p {
+      width: $i#{'%'};
+    }
+    .mw#{$i}p {
+      max-width: $i#{'%'};
+    }
+    .h#{$i}p {
+      height: $i#{'%'};
+    }
+    .mh#{$i}p {
+      max-height: $i#{'%'};
+    }
+    .fw#{$i / 10} {
+      font-weight: $i * 10;
+    }
+  }
+
+  // 5的倍数
+  @if $i % 5 == 0 {
+    // position
+    .top-#{$i} {
+      top: #{$i}px;
+    }
+    .right-#{$i} {
+      right: #{$i}px;
+    }
+    .bottom-#{$i} {
+      bottom: #{$i}px;
+    }
+    .left-#{$i} {
+      left: #{$i}px;
+    }
+  }
+
+  // font-size 偶数 12~30
+  @if $i >= 12 and $i < 30 and $i % 2 == 0 {
+    .f#{$i} {
+      font-size: #{$i}px;
+    }
+  }
+}
+
+.m-0 {margin: 0 !important;}
+.p-0 {padding: 0 !important;}
+
+.tc {text-align: center}
+.tl {text-align: left}
+.tr {text-align: right}
+.tj {text-align: justify}
+
+.dn {              display: none; }
+.di {              display: inline; }
+.db {              display: block; }
+.df {              display: flex; }
+.dib {             display: inline-block; }
+.dit {             display: inline-table; }
+.dt {              display: table; }
+.dtc {             display: table-cell; }
+.dt-row {          display: table-row; }
+.dt-row-group {    display: table-row-group; }
+.dt-column {       display: table-column; }
+.dt-column-group { display: table-column-group; }
+
+.static   {   position: static;}
+.relative {   position: relative;}
+.absolute {   position: absolute;}
+.fixed    {   position: fixed;}
+.absolute--fill     {top: 0;right: 0;bottom: 0;left: 0;margin: auto;}
+.absolute--middle   {top: 0;bottom: 0;margin: auto;}
+.absolute--center   {left: 0;right: 0;margin: auto;}
+
+.o-100 {opacity: 1;}
+.o-90  {opacity: .9;}
+.o-80  {opacity: .8;}
+.o-70  {opacity: .7;}
+.o-60  {opacity: .6;}
+.o-50  {opacity: .5;}
+.o-40  {opacity: .4;}
+.o-30  {opacity: .3;}
+.o-20  {opacity: .2;}
+.o-10  {opacity: .1;}
+.o-05  {opacity: .05;}
+.o-0   {opacity: 0;}
+
+.ws-normal { white-space: normal; }
+.nowrap { white-space: nowrap; }
+.pre { white-space: pre; }
+
+.strike       { text-decoration: line-through; }
+.underline    { text-decoration: underline; }
+.no-underline { text-decoration: none; }
+
+.tl  { text-align: left; }
+.tr  { text-align: right; }
+.tc  { text-align: center; }
+.tj  { text-align: justify; }
+
+.cur-p {cursor: pointer;}
+.cur-d {cursor: default;}
+
+.ov-a {overflow: auto;}
+.ov-h {overflow: hidden;}
+.ov-s {overflow: scroll;}
+
+.v-base { vertical-align: baseline; }
+.v-mid  { vertical-align: middle; }
+.v-top  { vertical-align: top; }
+.v-btm  { vertical-align: bottom; }
+
+.fl { float: left;  _display: inline; }
+.fr { float: right; _display: inline; }
+.fn { float: none; }
+
+.br0     {     border-radius: 0; }
+.br-50   {     border-radius: 50%; }
+.br-100  {     border-radius: 100%; }
+.br-pill {     border-radius: 9999px; }
+
+.border-box {box-sizing: border-box;}
+.lh-solid {line-height: 1;}
+
+.clearfix {
+  zoom: 1;
+  &::after {
+    content: "";
+    display: block;
+    height: 0;
+    clear: both;
+    visibility: hidden;
+  }
+}
