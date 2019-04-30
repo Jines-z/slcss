@@ -6,31 +6,31 @@ const gulp         = require('gulp'),
       postCss      = require('gulp-postcss'),
       sass         = require('gulp-sass')
 
-const SRC_DIR  = path.resolve(__dirname, 'src'),
-      LIB_DIR  = path.resolve(__dirname, 'lib')
+const SCSS_DIR  = path.resolve(__dirname, 'scss'),
+      CSS_DIR  = path.resolve(__dirname, 'css')
 
 gulp.task('scss', function () {
-    return gulp.src([SRC_DIR + '/**/*.scss'])
-        .pipe(changed(LIB_DIR))
+    return gulp.src([SCSS_DIR + '/**/*.scss'])
+        .pipe(changed(CSS_DIR))
         .pipe(sass().on('error', sass.logError))
-        .pipe(gulp.dest(LIB_DIR))
+        .pipe(gulp.dest(CSS_DIR))
 
 })
 
 gulp.task('min-scss', function () {
-    return gulp.src([SRC_DIR + '/**/*.scss'])
-        .pipe(changed(LIB_DIR))
+    return gulp.src([SCSS_DIR + '/**/*.scss'])
+        .pipe(changed(CSS_DIR))
         .pipe(sass().on('error', sass.logError))
         .pipe(postCss([autoPreFixer({
-            browsers: ['last 4 version', 'Android >= 4.0'],
+            browsers: ['> 1%', 'last 5 version', 'Android >= 4.0', 'iOS >= 8.0'],
             cascade: false,
             remove: true
         })]))
         .pipe(cleanCSS())
-        .pipe(gulp.dest(LIB_DIR))
+        .pipe(gulp.dest(CSS_DIR))
 
 })
 
 gulp.task('default', ['scss'], function () {
-    gulp.watch(SRC_DIR + '/**/*.scss', ['scss'])
+    gulp.watch(SCSS_DIR + '/**/*.scss', ['scss'])
 })

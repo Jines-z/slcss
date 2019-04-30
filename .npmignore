@@ -1,7 +1,5 @@
 # Folders to ignore
 node_modules
-!lib
-src/
 
 # Editor directories and files to ignore
 .DS_STORE
