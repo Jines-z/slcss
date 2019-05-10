@@ -1,5 +1,6 @@
 # Folders to ignore
 node_modules
+css/mp-hover
 
 # Editor directories and files to ignore
 .DS_STORE
