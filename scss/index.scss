@@ -81,8 +81,8 @@
     }
   }
 
-  // font-size 偶数 12~30
-  @if $i >= 12 and $i < 30 and $i % 2 == 0 {
+  // font-size  12~30
+  @if $i >= 12 and $i < 30 {
     .f#{$i} {
       font-size: #{$i}px;
     }
