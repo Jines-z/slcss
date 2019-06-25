@@ -1,14 +1,14 @@
 {
   "name": "slcss",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "author": "zhengaojin <zhengaojin@live.cn>",
   "private": false,
   "description": "This is an atomic CSS collection",
   "main": "css/index.css",
   "license": "MIT",
   "scripts": {
-    "start": "rimraf lib && gulp",
-    "build": "rimraf lib && gulp min-scss"
+    "start": "rimraf css && gulp",
+    "build": "rimraf css && gulp min-scss"
   },
   "keywords": [
     "css",
