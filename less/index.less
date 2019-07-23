@@ -1,97 +1,104 @@
-@function x2 ($num) {
-  @return $num * 2#{rpx}
-}
-
-@for $i from 0 through 100 {
-  // 偶数和5的倍数
-  @if $i % 2 == 0 or $i % 5 == 0 {
-    // margin
-    .mt-#{$i} {
-      margin-top: x2($i);
-    }
-    .mr-#{$i} {
-      margin-right: x2($i);
-    }
-    .mb-#{$i} {
-      margin-bottom: x2($i);
-    }
-    .ml-#{$i} {
-      margin-left: x2($i);
-    }
-
-    // padding
-    .pt-#{$i} {
-      padding-top: x2($i);
-    }
-    .pr-#{$i} {
-      padding-right: x2($i);
-    }
-    .pb-#{$i} {
-      padding-bottom: x2($i);
-    }
-    .pl-#{$i} {
-      padding-left: x2($i);
-    }
-
-    // line-height
-    @if $i <= 50 {
-      .lh#{$i} {
-        line-height: x2($i);
-      }
-    }
-
-    // width height
-    .w#{$i} {
-      width: x2($i);
-    }
-    .h#{$i} {
-      height: x2($i);
-    }
+// 偶数和5的倍数
+.Distance(@i) when (mod(@i, 5) = 0) , (mod(@i, 2) = 0) {
+  // margin
+  .mt-@{i} {
+    margin-top: (@i * 1px);
+  }
+  .mr-@{i} {
+    margin-right: (@i * 1px);
+  }
+  .mb-@{i} {
+    margin-bottom: (@i * 1px);
+  }
+  .ml-@{i} {
+    margin-left: (@i * 1px);
   }
 
-  // 10的倍数
-  @if $i % 10 == 0 and $i != 0 {
-    .w#{$i}p {
-      width: $i#{'%'};
-    }
-    .mw#{$i}p {
-      max-width: $i#{'%'};
-    }
-    .h#{$i}p {
-      height: $i#{'%'};
-    }
-    .mh#{$i}p {
-      max-height: $i#{'%'};
-    }
-    .fw#{$i / 10} {
-      font-weight: $i * 10;
-    }
+  // padding
+  .pt-@{i} {
+    padding-top: (@i * 1px);
+  }
+  .pr-@{i} {
+    padding-right: (@i * 1px);
+  }
+  .pb-@{i} {
+    padding-bottom: (@i * 1px);
+  }
+  .pl-@{i} {
+    padding-left: (@i * 1px);
   }
 
-  // 5的倍数
-  @if $i % 5 == 0 {
-    // position
-    .top-#{$i} {
-      top: x2($i);
-    }
-    .right-#{$i} {
-      right: x2($i);
-    }
-    .bottom-#{$i} {
-      bottom: x2($i);
-    }
-    .left-#{$i} {
-      left: x2($i);
-    }
+  // width height
+  .w@{i} {
+    width: (@i * 1px);
   }
-
-  // font-size 12~30
-  @if $i >= 12 and $i < 30 {
-    .f#{$i} {
-      font-size: x2($i);
-    }
+  .h@{i} {
+    height: (@i * 1px);
   }
 }
+
+// 10的倍数
+.Percent(@i) when (mod(@i, 10) = 0) and (@i > 0) {
+  .w@{i}p {
+    width: percentage(@i / 100);
+  }
+  .mw@{i}p {
+    max-width: percentage(@i / 100);
+  }
+  .h@{i}p {
+    height: percentage(@i / 100);
+  }
+  .mh@{i}p {
+    max-height: percentage(@i / 100);
+  }
+}
+
+// 5的倍数
+.Position(@i) when (mod(@i, 5) = 0) {
+  .top-@{i} {
+    top: (@i * 1px);
+  }
+  .right-@{i} {
+    right: (@i * 1px);
+  }
+  .bottom-@{i} {
+    bottom: (@i * 1px);
+  }
+  .left-@{i} {
+    left: (@i * 1px);
+  }
+}
+
+// 小于50 偶数和5的倍数
+.LineHeight(@i) when (@i <= 50) and (mod(@i, 5) = 0) , (@i <= 50) and (mod(@i, 2) = 0) {
+  .lh@{i} {
+    line-height: (@i * 1px);
+  }
+}
+
+.FontWeight(@i) when (@i > 0) and (@i < 10) {
+  .fw@{i} {
+    font-weight: @i * 100;
+  }
+}
+
+.FontSize(@i) when (@i >= 12) and (@i <= 30) {
+  .f@{i} {
+    font-size: (@i * 1px);
+  }
+}
+
+.loop(@n, @i: 0) when (@i <= @n) {
+  .Distance(@i);
+  .Percent(@i);
+  .Position(@i);
+  .LineHeight(@i);
+  .FontWeight(@i);
+  .FontSize(@i);
+  .loop(@n, (@i + 1));
+}
+
+.loop(100);
 
 .m-0 {margin: 0 !important;}
 .p-0 {padding: 0 !important;}

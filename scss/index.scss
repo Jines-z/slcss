@@ -1,6 +1,6 @@
 @for $i from 0 through 100 {
   // 偶数和5的倍数
-  @if $i % 2 == 0 or ($i % 5 == 0 and $i % 10 != 0) {
+  @if $i % 2 == 0 or $i % 5 == 0 {
     // margin
     .mt-#{$i} {
       margin-top: #{$i}px;
@@ -82,7 +82,7 @@
   }
 
   // font-size  12~30
-  @if $i >= 12 and $i < 30 {
+  @if $i >= 12 and $i <= 30 {
     .f#{$i} {
       font-size: #{$i}px;
     }
