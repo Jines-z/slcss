@@ -88,6 +88,12 @@
   }
 }
 
+.BorderRadius(@i) when (@i >= 2) and (@i <= 10) {
+  .br-@{i} {
+    border-radius: (@i * 2rpx);
+  }
+}
+
 .loop(@n, @i: 0) when (@i <= @n) {
   .Distance(@i);
   .Percent(@i);

@@ -1,6 +1,6 @@
 {
   "name": "slcss",
-  "version": "1.2.2",
+  "version": "1.2.3",
   "author": "zhengaojin <zhengaojin@live.cn>",
   "private": false,
   "description": "This is an atomic CSS collection",
@@ -14,7 +14,8 @@
   "keywords": [
     "css",
     "scss",
-    "base"
+    "less",
+    "atomic"
   ],
   "devDependencies": {
     "autoprefixer": "^9.5.1",

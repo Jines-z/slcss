@@ -81,10 +81,17 @@
     }
   }
 
-  // font-size  12~30
+  // font-size  12 ~ 30
   @if $i >= 12 and $i <= 30 {
     .f#{$i} {
       font-size: #{$i}px;
+    }
+  }
+
+  // border-radius  2 ~ 10
+  @if $i >= 2 and $i <= 10 {
+    .br-#{$i} {
+      border-radius: #{$i}px;
     }
   }
 }

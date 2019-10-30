@@ -86,9 +86,16 @@
   }
 
   // font-size 12~30
-  @if $i >= 12 and $i < 30 {
+  @if $i >= 12 and $i <= 30 {
     .f#{$i} {
       font-size: x2($i);
+    }
+  }
+
+  // border-radius 2~10
+  @if $i >= 2 and $i <= 10 {
+    .br-#{$i} {
+      border-radius: x2($i);
     }
   }
 }
